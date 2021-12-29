@@ -8,11 +8,16 @@ down:
 help:
 	@echo "Usage: make [command]"
 	@echo ""
-	@echo "down    – Stop local mysql server"
-	@echo "help    – Show this help"
-	@echo "jupyter – Start jupyter notebook"
-	@echo "test    – Run all unit and integration tests"
-	@echo "up      – Start local mysql server"
+	@echo "down               – Stop local MySQL server"
+	@echo "help               – Show this help"
+	@echo "jupyter            – Start jupyter notebook"
+	@echo "jupyter-with-mysql – Start jupyter notebook with local MySQL server"
+	@echo "test               – Run all unit and integration tests"
+	@echo "up                 – Start local MySQL server"
+
+jupyter-with-mysql:
+	make up
+	make jupyter
 
 jupyter:
 	PYTHONPATH="$(ROOT_DIR)" jupyter notebook --notebook-dir=notebooks
