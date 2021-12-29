@@ -21,4 +21,4 @@ test:
 	pytest
 
 up:
-	docker-compose up --detach
+	./start_mysql.sh
