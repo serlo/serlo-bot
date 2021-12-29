@@ -1,11 +1,10 @@
 import urllib.parse
 
 def get_domain(url):
-    netloc = urllib.parse.urlparse(url).netloc
-
-    return ".".join(netloc.split(".")[-2:])
+    return ".".join(get_domain_parts(url)[-2:])
 
 def get_subdomain(url):
-    netloc = urllib.parse.urlparse(url).netloc
+    return ".".join(get_domain_parts(url)[:-2])
 
-    return ".".join(netloc.split(".")[:-2])
+def get_domain_parts(url):
+    return urllib.parse.urlparse(url).netloc.split(".")
