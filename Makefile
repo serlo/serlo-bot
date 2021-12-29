@@ -1,6 +1,6 @@
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: help
+.PHONY: help jupyter test up down
 
 help:
 	@echo "Usage: make [command]"
