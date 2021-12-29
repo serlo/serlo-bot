@@ -9,6 +9,7 @@ help:
 	@echo "help    – Show this help"
 	@echo "test    – Run all unit and integration tests"
 	@echo "up      – Start local mysql server"
+	@echo "down    – Stop local mysql server"
 
 jupyter:
 	PYTHONPATH="$(ROOT_DIR)" jupyter notebook --notebook-dir=notebooks
@@ -18,3 +19,6 @@ test:
 
 up:
 	docker-compose up --detach
+
+down:
+	docker-compose down
