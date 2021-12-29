@@ -7,4 +7,4 @@ help:
 	@echo "help    – Show this help"
 
 jupyter:
-	jupyter notebook --notebook-dir=src
+	jupyter notebook --notebook-dir=notebooks
