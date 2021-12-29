@@ -1,3 +1,5 @@
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+
 .PHONY: help
 
 help:
@@ -8,7 +10,7 @@ help:
 	@echo "test    – Run all unit and integration tests"
 
 jupyter:
-	jupyter notebook --notebook-dir=notebooks
+	PYTHONPATH="$(ROOT_DIR)" jupyter notebook --notebook-dir=notebooks
 
 test:
 	pytest
