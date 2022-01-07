@@ -1,3 +1,4 @@
+import getpass
 import json
 import requests
 
@@ -11,7 +12,12 @@ class SerloBot:
         self.env = EnvironmentConfig(env)
         self.session = SerloSession(self.env)
 
-    def login(self, username, password):
+    def login(self, username=None, password=None):
+        if username == None:
+            username = getpass.getpass("Serlo-Username: ")
+        if password == None:
+            password = getpass.getpass("Serlo-Password: ")
+
         login_page = self.session.get(
                 self.env.get_url(subdomain="en", path="/api/auth/login"),
                 headers = {"Referer": self.env.get_url(subdomain="en")})
