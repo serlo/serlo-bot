@@ -19,6 +19,6 @@ setup(
     install_requires=['requests', 'beautifulsoup4'],
     extras_require={
         'dev': ['pytest'],
-        'notebook': ['jupyter', 'pandas', 'mysql-connector-python']
+        'notebooks': ['jupyter', 'pandas', 'mysql-connector-python']
     }
 )
