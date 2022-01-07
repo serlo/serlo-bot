@@ -2,9 +2,6 @@ ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 .PHONY: down help jupyter test up
 
-down:
-	docker-compose down
-
 help:
 	@echo "Usage: make [command]"
 	@echo ""
@@ -14,6 +11,9 @@ help:
 	@echo "jupyter-with-mysql – Start jupyter notebook with local MySQL server"
 	@echo "test               – Run all unit and integration tests"
 	@echo "up                 – Start local MySQL server"
+
+down:
+	docker-compose down
 
 jupyter-with-mysql:
 	make up
