@@ -1,6 +1,6 @@
 ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-.PHONY: down help jupyter test up
+.PHONY: down help jupyter jupyter-with-mysql main test up
 
 help:
 	@echo "Usage: make [command]"
@@ -9,6 +9,7 @@ help:
 	@echo "help               – Show this help"
 	@echo "jupyter            – Start jupyter notebook"
 	@echo "jupyter-with-mysql – Start jupyter notebook with local MySQL server"
+	@echo "mysql              – Start shell to local MySQL server"
 	@echo "test               – Run all unit and integration tests"
 	@echo "up                 – Start local MySQL server"
 
@@ -21,6 +22,9 @@ jupyter-with-mysql:
 
 jupyter:
 	PYTHONPATH="$(ROOT_DIR)" jupyter notebook --notebook-dir=notebooks
+
+mysql:
+	docker-compose exec mysql mysql --user=root --password=password serlo
 
 test:
 	pytest
