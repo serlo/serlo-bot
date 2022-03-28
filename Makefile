@@ -19,6 +19,7 @@ down:
 jupyter-with-mysql:
 	make up
 	make jupyter
+	make down
 
 jupyter:
 	PYTHONPATH="$(ROOT_DIR)" jupyter notebook --notebook-dir=notebooks
