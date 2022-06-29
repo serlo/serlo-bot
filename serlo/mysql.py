@@ -8,3 +8,9 @@ db = mysql.connector.connect(
     database="serlo",
     charset="latin1"
 )
+
+def query(sql):
+    c = db.cursor()
+    c.execute(sql)
+
+    return c.fetchall()
