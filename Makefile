@@ -25,7 +25,7 @@ jupyter:
 	PYTHONPATH="$(ROOT_DIR)" jupyter notebook --notebook-dir=notebooks
 
 mysql:
-	docker-compose exec mysql mysql --user=root --password=password serlo
+	docker-compose exec mysql mysql --user=root --password=secret serlo
 
 test:
 	pytest

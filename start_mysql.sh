@@ -34,7 +34,7 @@ function import_anonymous_data {
 }
 
 function exec_mysql {
-	docker-compose exec -T mysql mysql --user=root --password=password "$@"
+	docker-compose exec -T mysql mysql --user=root --password=secret "$@"
 }
 
 main
