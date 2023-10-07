@@ -6,7 +6,6 @@ db = mysql.connector.connect(
     password="secret",
     port="3306",
     database="serlo",
-    charset="latin1"
 )
 
 def query(sql):
