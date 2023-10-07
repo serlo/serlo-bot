@@ -23,7 +23,6 @@ function import_anonymous_data {
 	gsutil cp "${LATEST_DUMP}" "${TMP_DUMP}"
 	unzip -d "${TMP_DIR}" "${TMP_DUMP}"
 
-	exec_mysql -e "create database serlo;"
 	exec_mysql serlo < "${TMP_DIR}/mysql.sql"
 	docker cp "${TMP_DIR}/user.csv" $(docker-compose ps -q mysql):/
 	exec_mysql -e "LOAD DATA LOCAL INFILE 'user.csv' INTO TABLE user \
@@ -34,7 +33,7 @@ function import_anonymous_data {
 }
 
 function exec_mysql {
-	docker-compose exec -T mysql mysql --user=root --password=password "$@"
+	docker-compose exec -T mysql mysql --user=root --password=secret "$@"
 }
 
 main
